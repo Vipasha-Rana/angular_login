@@ -1,0 +1,37 @@
+<app-chart
+  [type]="'line'"
+  [data]="lineChartData"
+  [options]="lineChartOptions"
+  [legend]="lineChartLegend">
+</app-chart>
+
+<app-chart
+  [type]="'bar'"
+  [data]="barChartData"
+  [options]="barChartOptions"
+  [plugins]="barChartPlugins"
+  [legend]="barChartLegend">
+</app-chart>
+
+<app-chart
+  [type]="'pie'"
+  [data]="pieChartData"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+</app-chart>
+
+<app-chart
+  [type]="'doughnut'"
+  [data]="doughnutChartData"
+  [labels]="doughnutChartLabels"
+  [options]="doughnutChartOptions"
+  [legend]="true">
+</app-chart>
+
+<app-chart
+  [type]="'scatter'"
+  [data]="scatterChartData"
+  [options]="scatterChartOptions">
+</app-chart>

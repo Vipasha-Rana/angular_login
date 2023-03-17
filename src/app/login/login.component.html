@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card border-0 shadow-lg">
+        <div class="card-header bg-dark text-white">
+          <h4 class="mb-0">Welcome back!</h4>
+        </div>
+        <div class="card-body p-4">
+          <form #loginForm="ngForm">
+            <div class="form-group mb-4">
+              <label for="username" class="font-weight-bold mb-2">Username</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                </div>
+                <input type="text" class="form-control rounded-0" id="username" [(ngModel)]="username" name="username" placeholder="Enter your username" required>
+                <div *ngIf="loginForm.submitted && loginForm.controls['username'].errors" class="invalid-feedback">
+                  Please enter your username.
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <label for="password" class="font-weight-bold mb-2">Password</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-light"><i class="bi bi-lock"></i></span>
+                </div>
+                <input type="password" class="form-control rounded-0" id="password" [(ngModel)]="password" name="password" placeholder="Enter your password" required>
+                <div *ngIf="loginForm.submitted && loginForm.controls['password'].errors" class="invalid-feedback">
+                  Please enter your password.
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block rounded-0" (click)="login(loginForm)" [disabled]="loginForm.invalid">Log In</button>
+          </form>
+        </div>
+        <div class="card-footer bg-light">
+          <div class="text-center">
+            <a href="#" class="text-decoration-none">Don't have an account? Sign up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.3/dist/umd/popper.min.js"
+integrity="sha384-KfSpJqgyjK2eQTqO89z6bJ8Cj+Fe0XZKc+PzgQLaJwb3Hquj2FfnDLv1plJ2AemG"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"
+integrity="sha384-MdZea0uEsQG+Q4YwE7jqnFvNGfUsLvW8kk3qSzHod9ZbxvTgFtW8TpwgBkTMzjjm"
+crossorigin="anonymous"></script>

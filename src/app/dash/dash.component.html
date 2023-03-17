@@ -1,0 +1,376 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://cdn.logo.com/hotlink-ok/logo-social.png"
+        alt="Your Logo"
+        height="30"
+      />
+      <h3 class="d-inline-block align-middle ms-2">Dashboard</h3>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="btn btn-primary" routerLink="/home">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="mx-5 my-5">
+  <kendo-grid
+    [data]="gridData"
+    [pageSize]="pageSize"
+    [skip]="skip"
+    [filter]="filter"
+    [sortable]="true"
+    [pageable]="true"
+    [filterable]="true"
+    [resizable]="true"
+    [columnMenu]="true"
+    (pageChange)="onPageChange($event)"
+    (filterChange)="filterChange($event)"
+    >
+    <kendo-grid-column field="position" title="Position"> </kendo-grid-column>
+    <kendo-grid-column field="name" title="Name"> </kendo-grid-column>
+    <kendo-grid-column
+      field="weight"
+      title="Weight"
+      filter="numeric"
+
+    >
+    </kendo-grid-column>
+    <kendo-grid-column field="symbol" title="Symbol"> </kendo-grid-column>
+  </kendo-grid>
+</div>
+
+<div class="mx-5 my-5">
+  <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef>Weight</th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Symbol</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<div class="mx-5 my-5">
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef>Weight</th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Symbol</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+  ></mat-paginator>
+</div>
+
+<div class="mx-5 my-5">
+  <table mat-table [dataSource]="dataSource2" matSort class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by number"
+      >
+        No.
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by name"
+      >
+        Name
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by weight"
+      >
+        Weight
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th
+        mat-header-cell
+        *matHeaderCellDef
+        mat-sort-header
+        sortActionDescription="Sort by symbol"
+      >
+        Symbol
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<div class="row d-flex justify-content-center mx-5 my-5">
+  <mat-form-field>
+    <mat-label class="py-5">Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. ium"
+      #input
+    />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource3" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef>Weight</th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Symbol</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="row d-flex justify-content-center mx-5 my-5" style="display: block">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    [type]="'line'"
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    [legend]="lineChartLegend"
+  >
+  </canvas>
+</div>
+
+<div class="row d-flex justify-content-center mx-5 my-5" style="display: block">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    [data]="barChartData"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [type]="'bar'"
+  >
+  </canvas>
+</div>
+
+<div class="row d-flex justify-content-center mx-5 my-5" style="display: block">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    [type]="'pie'"
+    [datasets]="pieChartDatasets"
+    [labels]="pieChartLabels"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend"
+  >
+  </canvas>
+</div>
+
+<div class="row d-flex justify-content-center mx-5 my-5" style="display: block">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    [labels]="doughnutChartLabels"
+    [datasets]="doughnutChartDatasets"
+    [options]="doughnutChartOptions"
+    [legend]="true"
+    [type]="'doughnut'"
+  >
+  </canvas>
+</div>
+
+<div class="row d-flex justify-content-center mx-5 my-5" style="display: block">
+  <canvas
+    baseChart
+    width="400"
+    height="400"
+    [datasets]="scatterChartDatasets"
+    [options]="scatterChartOptions"
+    [type]="'scatter'"
+  >
+  </canvas>
+</div>
+
+<!-- <app-chart [chartType]="'line'" [chartData]="lineChartData" [chartOptions]="lineChartOptions" [chartLegend]="lineChartLegend"></app-chart>
+
+<app-chart [chartType]="'bar'" [chartData]="barChartData" [chartOptions]="barChartOptions" [chartPlugins]="barChartPlugins" [chartLegend]="barChartLegend"></app-chart>
+
+<app-chart [chartType]="'pie'" [chartData]="pieChartDatasets" [chartOptions]="pieChartOptions" [chartPlugins]="pieChartPlugins" [chartLegend]="pieChartLegend"></app-chart>
+
+<app-chart [chartType]="'doughnut'" [chartData]="doughnutChartDatasets" [chartOptions]="doughnutChartOptions" [chartLegend]="true" [chartLabels]="doughnutChartLabels"></app-chart>
+
+<app-chart [chartType]="'scatter'" [chartData]="scatterChartDatasets" [chartOptions]="scatterChartOptions"></app-chart> -->
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-5 my-n1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor
+          purus vitae dui commodo, eu tristique magna luctus. Vestibulum id
+          aliquet metus, at congue elit.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <address>
+          <strong>Address:</strong> 123 Main St, New York, NY 10001<br />
+          <strong>Email:</strong> info@example.com<br />
+          <strong>Phone:</strong> (123) 456-7890
+        </address>
+      </div>
+      <div class="col-md-4">
+        <h5>Follow Us</h5>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#"><i class="bi bi-twitter"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#"><i class="bi bi-instagram"></i></a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-md-6 text-center text-md-start">
+        <p>&copy; 2023 Company Name. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          <li class="list-inline-item"><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+  rel="stylesheet"
+/>
+<title>Bootstrap Example</title>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
